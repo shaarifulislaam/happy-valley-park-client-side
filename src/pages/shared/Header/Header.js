@@ -1,13 +1,26 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import useAuth from "../../../hook/useAuth/useAuth";
+import logo from "../../../images/logo/Happy Valley Park-logos.jpeg";
 
 const Header = () => {
+  const { user, logOut } = useAuth();
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home">Happy Valley Park</Navbar.Brand>
+          <Navbar.Brand as={HashLink} to="/home">
+            <img
+              src={logo}
+              width="80"
+              height="50"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
+
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-center">
             <Nav.Link as={HashLink} to="/home#home">
@@ -22,8 +35,19 @@ const Header = () => {
             <Nav.Link as={HashLink} to="/contact">
               Contact
             </Nav.Link>
+
+            {user?.email ? (
+              <Button onClick={logOut} variant="light">
+                LogOut
+              </Button>
+            ) : (
+              <Nav.Link as={Link} to="/login" className="navbar">
+                Login
+              </Nav.Link>
+            )}
+
             <Navbar.Text>
-              Signed in as: <a href="#login">Mark Otto</a>
+              Signed in as: <a href="#login">{user?.displayName}</a>
             </Navbar.Text>
           </Navbar.Collapse>
         </Container>
