@@ -1,0 +1,9 @@
+/* .event-box {
+    width: 500px;
+    height: 380px;
+  } */
+
+  .login-form form input , textarea{
+    width: 75%;
+   
+  }

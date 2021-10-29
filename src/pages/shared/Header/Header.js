@@ -22,7 +22,7 @@ const Header = () => {
           </Navbar.Brand>
 
           <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-center">
+          <Navbar.Collapse className="justify-content-center align-items-center">
             <Nav.Link as={HashLink} to="/home#home">
               Home
             </Nav.Link>
@@ -34,6 +34,9 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link as={HashLink} to="/contact">
               Contact
+            </Nav.Link>
+            <Nav.Link as={HashLink} to="/addService">
+              Add Service
             </Nav.Link>
 
             {user?.email ? (
