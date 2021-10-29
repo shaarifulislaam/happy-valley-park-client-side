@@ -14,7 +14,7 @@ const MyBooking = () => {
   const { bookingId } = useParams();
   const [service, setService] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${bookingId}`)
+    fetch(`https://still-ridge-26061.herokuapp.com/services/${bookingId}`)
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
