@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyC04cbfcM3iyXU-GffJ3uOIHhqGL-2bWv8",
-  authDomain: "happy-valley-park.firebaseapp.com",
-  projectId: "happy-valley-park",
-  storageBucket: "happy-valley-park.appspot.com",
-  messagingSenderId: "1063979773065",
-  appId: "1:1063979773065:web:d97a90845ba5fdfedbaa58",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 export default firebaseConfig;
