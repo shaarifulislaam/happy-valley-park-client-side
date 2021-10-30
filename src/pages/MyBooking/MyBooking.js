@@ -8,7 +8,7 @@ const MyBooking = () => {
   const { control, setControl, user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/placeBooking/${user.email}`)
+    fetch(`https://still-ridge-26061.herokuapp.com/placeBooking/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyBooking(data));
   }, [control]);
@@ -17,7 +17,7 @@ const MyBooking = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/placeBooking/${id}`;
+      const url = `https://still-ridge-26061.herokuapp.com/placeBooking/${id}`;
       fetch(url, {
         method: "DELETE",
       })

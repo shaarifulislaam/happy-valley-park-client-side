@@ -24,7 +24,7 @@ const ServiceDetails = () => {
 
   const onSubmit = (data) => {
     data.status = "pending";
-    fetch("http://localhost:5000/placeBooking", {
+    fetch("https://still-ridge-26061.herokuapp.com/placeBooking", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

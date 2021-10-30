@@ -8,7 +8,7 @@ const ManageBooking = () => {
   //   const [control, setControl] = useState(false);
   const { control, setControl } = useAuth();
   useEffect(() => {
-    fetch("http://localhost:5000/placeBooking")
+    fetch("https://still-ridge-26061.herokuapp.com/placeBooking")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, [control]);
@@ -17,7 +17,10 @@ const ManageBooking = () => {
     bookings.status = "APPROVED";
     console.log(bookings.status);
     axios
-      .put(`http://localhost:5000/placeBooking/${id}`, bookings.status)
+      .put(
+        `https://still-ridge-26061.herokuapp.com/placeBooking/${id}`,
+        bookings.status
+      )
       .then((res) => {
         if (res) {
           alert("Approved");
@@ -30,7 +33,7 @@ const ManageBooking = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/placeBooking/${id}`;
+      const url = `https://still-ridge-26061.herokuapp.com/placeBooking/${id}`;
       fetch(url, {
         method: "DELETE",
       })
