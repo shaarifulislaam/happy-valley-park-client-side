@@ -48,7 +48,7 @@ const ManageBooking = () => {
   };
   return (
     <div>
-      <h1 className="text-center">ALL Bookings : {bookings?.length} </h1>
+      <h1 className="text-center ">ALL Bookings : {bookings?.length} </h1>
 
       <Table responsive striped bordered hover className="container">
         <thead>

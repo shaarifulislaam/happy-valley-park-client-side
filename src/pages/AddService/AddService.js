@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import "./addService.css";
 
 const AddService = () => {
@@ -32,7 +31,7 @@ const AddService = () => {
   return (
     <div>
       <h1 className="mt-5 text-center text-info">
-        Please register As a Volunteer
+        Please Register As a Service
       </h1>
       <div className="login-box w-75 m-auto mt-5">
         <div className=" border border d-flex justify-content-center align-items-center">

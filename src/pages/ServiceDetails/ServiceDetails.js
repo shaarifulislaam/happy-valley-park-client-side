@@ -65,7 +65,7 @@ const ServiceDetails = () => {
                 <input
                   {...register("email", { required: true })}
                   placeholder="Email"
-                  defaultValue={user.email}
+                  value={user.email}
                   className="p-2 m-2"
                 />
                 <input

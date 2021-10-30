@@ -1,0 +1,10 @@
+.navbar {
+    padding: 10px;
+    color: #15171a;
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  a.navbar.nav-link:hover {
+    color: #3fccdb;
+    font-size: 1.4rem;
+  }

@@ -13,6 +13,9 @@ import AddService from "./pages/AddService/AddService";
 import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 import ManageBooking from "./pages/ManageBooking/ManageBooking";
 import MyBooking from "./pages/MyBooking/MyBooking";
+import PrivateRoute from "./pages/Login/privateRoute/PrivateRoute";
+import Attractions from "./pages/home/Attractions/Attractions";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -33,21 +36,28 @@ function App() {
             <Route exact path="/about">
               <AboutUs></AboutUs>
             </Route>
+            <Route exact path="/attractions">
+              <Attractions></Attractions>
+            </Route>
             <Route exact path="/services">
               <Services></Services>
             </Route>
-            <Route exact path="/serviceDetails/:bookingId">
+            <Route exact path="/contact">
+              <Contact></Contact>
+            </Route>
+            <PrivateRoute exact path="/serviceDetails/:bookingId">
               <ServiceDetails></ServiceDetails>
-            </Route>
-            <Route exact path="/addService">
+            </PrivateRoute>
+            <PrivateRoute exact path="/addService">
               <AddService></AddService>
-            </Route>
-            <Route exact path="/myBooking">
+            </PrivateRoute>
+            <PrivateRoute exact path="/myBooking">
               <MyBooking></MyBooking>
-            </Route>
-            <Route exact path="/manageBooking">
+            </PrivateRoute>
+            <PrivateRoute exact path="/manageBooking">
               <ManageBooking></ManageBooking>
-            </Route>
+            </PrivateRoute>
+
             <Route exact path="*">
               <Notfound></Notfound>
             </Route>

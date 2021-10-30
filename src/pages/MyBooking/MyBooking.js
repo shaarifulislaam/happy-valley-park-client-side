@@ -32,7 +32,7 @@ const MyBooking = () => {
   };
   return (
     <div>
-      <h1 className="text-center">My Bookings : {myBooking?.length} </h1>
+      <h1 className="text-center ">My Bookings : {myBooking?.length} </h1>
 
       <Table responsive striped bordered hover className="container">
         <thead>

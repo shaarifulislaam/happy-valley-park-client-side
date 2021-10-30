@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css";
 import {
   Button,
   Container,
@@ -25,41 +26,52 @@ const Header = () => {
               width="80"
               height="50"
               className="d-inline-block align-top"
-              alt="React Bootstrap logo"
+              alt="Happy Valley logo"
             />
           </Navbar.Brand>
 
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-center align-items-center">
-            <Nav.Link as={HashLink} to="/home#home">
+            <Nav.Link as={HashLink} to="/home#home" className="navbar">
               Home
             </Nav.Link>
-            <Nav.Link as={HashLink} to="/home#about">
+            <Nav.Link as={HashLink} to="/home#about" className="navbar">
               About Us
             </Nav.Link>
-            <Nav.Link as={HashLink} to="/home#services">
+            <Nav.Link as={HashLink} to="/home#services" className="navbar">
               Our Services
             </Nav.Link>
-            <Nav.Link as={HashLink} to="/contact">
+            <Nav.Link as={HashLink} to="/home#attractions" className="navbar">
+              Attraction
+            </Nav.Link>
+            <Nav.Link as={HashLink} to="/contact" className="navbar">
               Contact
             </Nav.Link>
 
             {user?.email && (
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle
+                  variant="success"
+                  id="dropdown-basic"
+                  className="navbar"
+                >
                   Booking
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to="/addService">
+                  <Dropdown.Item as={Link} to="/addService" className="navbar">
                     {" "}
                     Add Service
                   </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/myBooking">
+                  <Dropdown.Item as={Link} to="/myBooking" className="navbar">
                     {" "}
                     My Booking
                   </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/manageBooking">
+                  <Dropdown.Item
+                    as={Link}
+                    to="/manageBooking"
+                    className="navbar"
+                  >
                     {" "}
                     Manage Booking
                   </Dropdown.Item>
@@ -68,7 +80,7 @@ const Header = () => {
             )}
 
             {user?.email ? (
-              <Button onClick={logOut} variant="light">
+              <Button onClick={logOut} variant="light" className="navbar">
                 LogOut
               </Button>
             ) : (
