@@ -8,6 +8,7 @@ const MyBooking = () => {
   const { user } = useAuth();
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -20,6 +21,20 @@ const MyBooking = () => {
   }, []);
 
   const onSubmit = (data) => {
+    data.status = "pending";
+    fetch("http://localhost:5000/placeBooking", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.insertedId) {
+          alert("added successfully!!");
+
+          reset();
+        }
+      });
     console.log(data);
   };
   return (
@@ -84,7 +99,11 @@ const MyBooking = () => {
                 <br />
                 {errors.exampleRequired && <span>This field is required</span>}
 
-                <input type="submit" className="btn btn-info w-50" />
+                <input
+                  type="submit"
+                  value="Place Booking"
+                  className="btn btn-info w-50"
+                />
               </form>
             </div>
           </div>

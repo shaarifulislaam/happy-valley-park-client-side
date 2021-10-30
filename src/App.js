@@ -11,7 +11,8 @@ import Header from "./pages/shared/Header/Header";
 import Services from "./pages/home/Services/Services";
 import AuthProvider from "./context/AuthProvider";
 import AddService from "./pages/AddService/AddService";
-import MyBooking from "./pages/MyBooking/MyBooking";
+import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
+import ManageBooking from "./pages/ManageBooking/ManageBooking";
 
 function App() {
   return (
@@ -35,11 +36,14 @@ function App() {
             <Route exact path="/services">
               <Services></Services>
             </Route>
-            <Route exact path="/myBooking/:bookingId">
-              <MyBooking></MyBooking>
+            <Route exact path="/serviceDetails/:bookingId">
+              <ServiceDetails></ServiceDetails>
             </Route>
             <Route exact path="/addService">
               <AddService></AddService>
+            </Route>
+            <Route exact path="/manageBooking">
+              <ManageBooking></ManageBooking>
             </Route>
             <Route exact path="*">
               <Notfound></Notfound>

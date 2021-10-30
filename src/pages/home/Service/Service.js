@@ -19,7 +19,7 @@ const Service = ({ service }) => {
             </p>
           </Card.Body>
           <Card.Footer className="border border-0 bg-white">
-            <Link to={`/myBooking/${_id}`}>
+            <Link to={`/serviceDetails/${_id}`}>
               <Button variant="info w-100 ">Book Now</Button>
             </Link>
           </Card.Footer>
