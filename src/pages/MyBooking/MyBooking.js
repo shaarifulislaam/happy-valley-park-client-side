@@ -5,33 +5,36 @@ import "./mybooking.css";
 
 const MyBooking = () => {
   const [myBooking, setMyBooking] = useState([]);
-  const [control, setControl] = useState(false);
-  const { user } = useAuth();
+  const { control, setControl, user } = useAuth();
+
   useEffect(() => {
     fetch(`http://localhost:5000/placeBooking/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyBooking(data));
   }, [control]);
+
+  //handle delete
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/placeBooking/${id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount) {
-          alert("Data Deleted!");
-          //   const remaining = myBooking.filter((service) => service._id !== id);
-          //   setMyBooking(remaining);
-          setControl(!control);
-        }
-      });
+    const proceed = window.confirm("Are you sure, you want to delete?");
+    if (proceed) {
+      const url = `http://localhost:5000/placeBooking/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert("Data Deleted!");
+            setControl(!control);
+          }
+        });
+    }
   };
   return (
     <div>
       <h1 className="text-center">My Bookings : {myBooking?.length} </h1>
-      <Table striped bordered hover className="container">
+
+      <Table responsive striped bordered hover className="container">
         <thead>
           <tr>
             <th>#</th>
@@ -40,23 +43,28 @@ const MyBooking = () => {
             <th>Date</th>
             <th>Service Name</th>
             <th>Approve</th>
-            <th>Delete</th>
+            <th>Cancel</th>
           </tr>
         </thead>
-        {myBooking.map((pd, index) => (
-          <tbody key={pd?._id}>
+        {myBooking.map((booking, index) => (
+          <tbody key={booking?._id}>
             <tr>
               <td>{index}</td>
-              <td>{pd?.name}</td>
-              <td>{pd?.email}</td>
-              <td>{pd?.date}</td>
-              <td>{pd?.service}</td>
-              <th>{pd?.status}</th>
-              <th className="delete-btn" onClick={() => handleDelete(pd?._id)}>
+              <td>{booking?.name}</td>
+              <td>{booking?.email}</td>
+              <td>{booking?.date}</td>
+              <td>{booking?.service}</td>
+              <td>
+                <button className="btn btn-primary">
+                  {booking?.status === "pending" ? "Pending" : "Approved"}
+                </button>
+              </td>
+              <td
+                className="delete-btn"
+                onClick={() => handleDelete(booking?._id)}
+              >
                 Delete
-              </th>
-
-              {/* <button className="btn bg-danger p-2">Delete</button> */}
+              </td>
             </tr>
           </tbody>
         ))}

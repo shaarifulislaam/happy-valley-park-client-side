@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 
 import useAuth from "../../hook/useAuth/useAuth";
+import Home from "../home/home/Home";
 
 const ServiceDetails = () => {
   const { user } = useAuth();
@@ -13,6 +14,7 @@ const ServiceDetails = () => {
     formState: { errors },
   } = useForm();
   const { bookingId } = useParams();
+  const history = useHistory();
   const [service, setService] = useState({});
   useEffect(() => {
     fetch(`https://still-ridge-26061.herokuapp.com/services/${bookingId}`)
@@ -31,11 +33,11 @@ const ServiceDetails = () => {
       .then((result) => {
         if (result.insertedId) {
           alert("added successfully!!");
-
           reset();
+          history.push("/home");
         }
       });
-    console.log(data);
+    // console.log(data);
   };
   return (
     <div className="row">
@@ -69,6 +71,7 @@ const ServiceDetails = () => {
                 <input
                   {...register("name")}
                   placeholder="Name"
+                  defaultValue={user.displayName}
                   className="p-2 m-2"
                 />
 
@@ -82,7 +85,7 @@ const ServiceDetails = () => {
                 <input
                   {...register("service", { required: true })}
                   placeholder="Service Name"
-                  defaultValue={service?.name}
+                  value={service?.name}
                   className="p-2 m-2"
                 />
                 <input
@@ -93,7 +96,7 @@ const ServiceDetails = () => {
                 <input
                   {...register("price", { required: true })}
                   placeholder="Price"
-                  defaultValue={service?.price}
+                  value={service?.price}
                   className="p-2 m-2"
                 />
                 <br />

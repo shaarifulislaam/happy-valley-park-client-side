@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AboutUs from "./pages/home/aboutUs/AboutUs";
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-        <BrowserRouter>
+        <Router>
           <Header></Header>
           <Switch>
             <Route exact path="/">
@@ -53,7 +53,7 @@ function App() {
             </Route>
           </Switch>
           <Footer></Footer>
-        </BrowserRouter>
+        </Router>
       </AuthProvider>
     </div>
   );

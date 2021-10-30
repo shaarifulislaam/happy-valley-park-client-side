@@ -14,6 +14,7 @@ firebaseAuthenticationInitialize();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [control, setControl] = useState(false);
 
   const auth = getAuth();
 
@@ -52,6 +53,8 @@ const useFirebase = () => {
     logOut,
     isLoading,
     setUser,
+    control,
+    setControl,
   };
 };
 
