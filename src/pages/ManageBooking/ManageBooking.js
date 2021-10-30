@@ -11,7 +11,7 @@ const ManageBooking = () => {
 
   return (
     <div>
-      <h1 className="text-center">All Bookings : {bookings?.length} </h1>
+      <h1 className="text-center">ALL Bookings : {bookings?.length} </h1>
       <Table striped bordered hover className="container">
         <thead>
           <tr>

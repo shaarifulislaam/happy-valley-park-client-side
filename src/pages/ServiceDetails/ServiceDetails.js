@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 
 import useAuth from "../../hook/useAuth/useAuth";
 
-const MyBooking = () => {
+const ServiceDetails = () => {
   const { user } = useAuth();
   const {
     register,
@@ -113,4 +113,4 @@ const MyBooking = () => {
   );
 };
 
-export default MyBooking;
+export default ServiceDetails;

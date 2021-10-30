@@ -4,7 +4,6 @@ import "./App.css";
 import AboutUs from "./pages/home/aboutUs/AboutUs";
 import Home from "./pages/home/home/Home";
 import Login from "./pages/Login/Login/Login";
-
 import Notfound from "./pages/NotFound/Notfound";
 import Footer from "./pages/shared/Footer/Footer";
 import Header from "./pages/shared/Header/Header";
@@ -13,6 +12,7 @@ import AuthProvider from "./context/AuthProvider";
 import AddService from "./pages/AddService/AddService";
 import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 import ManageBooking from "./pages/ManageBooking/ManageBooking";
+import MyBooking from "./pages/MyBooking/MyBooking";
 
 function App() {
   return (
@@ -41,6 +41,9 @@ function App() {
             </Route>
             <Route exact path="/addService">
               <AddService></AddService>
+            </Route>
+            <Route exact path="/myBooking">
+              <MyBooking></MyBooking>
             </Route>
             <Route exact path="/manageBooking">
               <ManageBooking></ManageBooking>
