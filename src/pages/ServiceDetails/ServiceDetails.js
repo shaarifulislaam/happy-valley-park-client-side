@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import useAuth from "../../hook/useAuth/useAuth";
@@ -14,6 +15,7 @@ const ServiceDetails = () => {
   const { bookingId } = useParams();
   const history = useHistory();
   const [service, setService] = useState({});
+
   useEffect(() => {
     fetch(`https://still-ridge-26061.herokuapp.com/services/${bookingId}`)
       .then((res) => res.json())
@@ -30,7 +32,7 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.insertedId) {
-          alert("added successfully!!");
+          alert("Data added successfully!");
           reset();
           history.push("/myBooking");
         }
@@ -39,20 +41,19 @@ const ServiceDetails = () => {
   return (
     <div className="row ">
       <div className="col-md-6 col-lg-8 col-sm-12">
-        <div className="row container-fluid mt-5">
+        <div className="row container-fluid mt-lg-5">
           <div className="col-md-12 col-lg-6 col-sm-12">
-            <img src={service?.img} alt="" />
+            <img className="mt-lg-5" src={service?.img} alt="" />
           </div>
-          <div className="col-md-12 col-lg-6 col-sm-12">
-            <h3>{service?.name}</h3>
+          <div className="col-md-12 col-lg-6 col-sm-12 custom-height">
+            <h3 className="mt-5">{service?.name}</h3>
             <p>{service?.description}</p>
-            <p>
-              <small>{service?.price}</small>
-            </p>
+            <p className="service-price">Fee : {service?.price} BDT</p>
           </div>
         </div>
       </div>
 
+      {/* place order  */}
       <div className="col-md-6 col-lg-4 col-sm-12 border border p-1 mt-2 custom-con">
         <h1 className="mt-3 text-center text-info">Place Order</h1>
         <div className="login-box  m-auto mt-3">
@@ -60,7 +61,7 @@ const ServiceDetails = () => {
             <div className="login-form mx-auto text-center">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                  {...register("email", { required: true })}
+                  {...register("email")}
                   placeholder="Email"
                   value={user.email}
                   className="p-2 m-2"

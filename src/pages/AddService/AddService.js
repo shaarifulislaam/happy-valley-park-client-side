@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./addService.css";
 
@@ -10,7 +11,10 @@ const AddService = () => {
 
     formState: { errors },
   } = useForm();
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const onSubmit = (data) => {
     fetch("https://still-ridge-26061.herokuapp.com/services", {
       method: "POST",
@@ -22,7 +26,7 @@ const AddService = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.insertedId) {
-          alert("added successfully!!");
+          handleShow();
 
           reset();
         }
@@ -63,6 +67,22 @@ const AddService = () => {
 
               <input type="submit" className="custom-btn my-3" />
             </form>
+            <Modal
+              show={show}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Added Status...</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>Data Added Successfully!</Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
         </div>
       </div>

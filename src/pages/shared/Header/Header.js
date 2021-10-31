@@ -90,23 +90,6 @@ const Header = () => {
               </Dropdown>
             )}
 
-            {user?.email ? (
-              <Link to="/login" className="text-decoration-none">
-                {" "}
-                <Button
-                  onClick={logOut}
-                  variant="bg-lighter"
-                  className="custom-btn mx-2 my-2 navbar login-text2"
-                >
-                  LogOut
-                </Button>
-              </Link>
-            ) : (
-              <Nav.Link as={Link} to="/login" className="navbar custom-btn">
-                Login
-              </Nav.Link>
-            )}
-
             <Navbar.Text>
               <Nav.Link
                 as={Link}
@@ -124,6 +107,23 @@ const Header = () => {
                 src={user?.photoURL}
                 roundedCircle
               />
+            )}
+
+            {user?.email ? (
+              <Link to="/login" className="text-decoration-none">
+                {" "}
+                <Button
+                  onClick={logOut}
+                  variant="bg-lighter"
+                  className="custom-btn mx-2 my-2 navbar login-text2"
+                >
+                  LogOut
+                </Button>
+              </Link>
+            ) : (
+              <Nav.Link as={Link} to="/login" className="navbar custom-btn">
+                Login
+              </Nav.Link>
             )}
           </Navbar.Collapse>
         </Container>

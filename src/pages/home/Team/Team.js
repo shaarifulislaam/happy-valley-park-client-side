@@ -35,7 +35,7 @@ const Team = () => {
             <div>
               <img src={member4} alt="" />
               <h3 className="mt-3">Tohedul Islam</h3>
-              <p className="my-2 text-secondary">Swimming Instructor</p>
+              <p className="my-2 text-secondary fs-5">Swimming Instructor</p>
             </div>
           </Col>
         </Row>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Modal, Table, Button } from "react-bootstrap";
 import useAuth from "../../hook/useAuth/useAuth";
 import "./mybooking.css";
 
@@ -7,10 +7,17 @@ const MyBooking = () => {
   const [myBooking, setMyBooking] = useState([]);
   const { control, setControl, user } = useAuth();
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     fetch(`https://still-ridge-26061.herokuapp.com/placeBooking/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setMyBooking(data));
+      .then((data) => {
+        setMyBooking(data);
+      });
   }, [control]);
 
   //handle delete
@@ -24,7 +31,7 @@ const MyBooking = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            alert("Data Deleted!");
+            handleShow();
             setControl(!control);
           }
         });
@@ -71,6 +78,22 @@ const MyBooking = () => {
           </tbody>
         ))}
       </Table>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Delete Status...</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Data Delete Successfully!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

@@ -1,11 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Modal, Table, Button } from "react-bootstrap";
 import useAuth from "../../hook/useAuth/useAuth";
 
 const ManageBooking = () => {
   const [bookings, setBookings] = useState([]);
   const { control, setControl } = useAuth();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     fetch("https://still-ridge-26061.herokuapp.com/placeBooking")
       .then((res) => res.json())
@@ -21,7 +27,7 @@ const ManageBooking = () => {
       .put(`https://still-ridge-26061.herokuapp.com/placeBooking/${id}`, data)
       .then((res) => {
         if (res) {
-          alert("Status Approved");
+          alert("Approved");
           setControl(!control);
         }
       });
@@ -38,7 +44,7 @@ const ManageBooking = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            alert("Data Deleted!");
+            handleShow();
             setControl(!control);
           }
         });
@@ -88,6 +94,22 @@ const ManageBooking = () => {
           </tbody>
         ))}
       </Table>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title> Delete Status...</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Data Delete Successfully!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
