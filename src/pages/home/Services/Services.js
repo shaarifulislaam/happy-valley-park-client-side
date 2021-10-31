@@ -15,7 +15,9 @@ const Services = () => {
   }, []);
   return (
     <div id="services">
-      <h1 className=" mt-sm-5 text-center my-4">Our Services</h1>
+      <h1 className=" mt-sm-5 text-center my-4 custom-title-margin">
+        Our Services
+      </h1>
       <Row
         xs={1}
         md={2}

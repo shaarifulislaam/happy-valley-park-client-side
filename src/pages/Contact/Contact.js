@@ -10,7 +10,7 @@ const Contact = () => {
   } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
-    <div id="contact" className="container  border border mt-3">
+    <div id="contact" className="container  border border mt-3 ">
       <h1 className="text-center mt-5">Planning a Meeting or Event?</h1>
       <p className="custom-text">
         If you’re looking for a fun way to bring everyone on your team closer

@@ -96,7 +96,7 @@ const Header = () => {
                 <Button
                   onClick={logOut}
                   variant="bg-lighter"
-                  className="custom-btn mx-2 navbar login-text2"
+                  className="custom-btn mx-2 my-2 navbar login-text2"
                 >
                   LogOut
                 </Button>

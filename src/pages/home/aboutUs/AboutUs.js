@@ -6,7 +6,7 @@ import "./about.css";
 const AboutUs = () => {
   return (
     <div id="about" className="about-container">
-      <h1 className="text-center fw-bolder my-3 pt-3">About Us</h1>
+      <h1 className="text-center fw-bolder my-3 pt-3 ">About Us</h1>
       <Container className="about-details rounded-3">
         <Row>
           <Col sm={12} md={6} lg={6}>

@@ -5,7 +5,6 @@ import useAuth from "../../hook/useAuth/useAuth";
 
 const ManageBooking = () => {
   const [bookings, setBookings] = useState([]);
-  //   const [control, setControl] = useState(false);
   const { control, setControl } = useAuth();
   useEffect(() => {
     fetch("https://still-ridge-26061.herokuapp.com/placeBooking")
@@ -47,7 +46,9 @@ const ManageBooking = () => {
   };
   return (
     <div>
-      <h1 className="text-center ">ALL Bookings : {bookings?.length} </h1>
+      <h1 className="text-center custom-margin">
+        ALL Bookings : {bookings?.length}{" "}
+      </h1>
 
       <Table responsive striped bordered hover className="container">
         <thead>

@@ -8,7 +8,7 @@ import "./Attraction.css";
 const Attractions = () => {
   return (
     <div id="attractions" className="container">
-      <h1 className="text-center  fw-bolder mt-5">Other Attractions</h1>
+      <h1 className="text-center  fw-bolder mt-5 ">Other Attractions</h1>
 
       <Row xs={1} md={6} lg={3} className="g-4">
         <Col>
