@@ -57,7 +57,6 @@ function App() {
             <PrivateRoute exact path="/manageBooking">
               <ManageBooking></ManageBooking>
             </PrivateRoute>
-
             <Route exact path="*">
               <Notfound></Notfound>
             </Route>

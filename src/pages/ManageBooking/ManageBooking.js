@@ -13,23 +13,22 @@ const ManageBooking = () => {
       .then((data) => setBookings(data));
   }, [control]);
 
+  //*handle update
   const handleUpdate = (id) => {
-    bookings.status = "APPROVED";
-    console.log(bookings.status);
+    let data = bookings.find((booking) => booking._id == id);
+    data.status = "APPROVED";
+
     axios
-      .put(
-        `https://still-ridge-26061.herokuapp.com/placeBooking/${id}`,
-        bookings.status
-      )
+      .put(`https://still-ridge-26061.herokuapp.com/placeBooking/${id}`, data)
       .then((res) => {
         if (res) {
-          alert("Approved");
+          alert("Status Approved");
           setControl(!control);
         }
       });
   };
 
-  //handle delete
+  //*handle delete
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
@@ -79,10 +78,10 @@ const ManageBooking = () => {
                 </button>
               </td>
               <td
-                className="delete-btn"
+                className="delete-btn text-center"
                 onClick={() => handleDelete(booking?._id)}
               >
-                Delete
+                <i class="far fa-trash-alt"></i>
               </td>
             </tr>
           </tbody>

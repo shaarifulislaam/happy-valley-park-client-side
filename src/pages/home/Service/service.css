@@ -1,0 +1,24 @@
+.custom-btn{
+    background-color:#fc5b62;
+    color: #ffffff;
+    border: 1px solid #fc5b62;
+    font-size: 1rem;
+    padding: 13px 30px;
+    text-transform: capitalize;
+    transition: all 0.3s ease 0s;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
+.custom-btn:hover{
+    background-color: #211E3B;
+}
+.service-price {
+    font-size: 1.3rem;
+    color: #333333;
+    margin-top: 20px;
+    margin-bottom: 3px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+

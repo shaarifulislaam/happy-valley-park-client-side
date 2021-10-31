@@ -60,10 +60,10 @@ const MyBooking = () => {
                 </button>
               </td>
               <td
-                className="delete-btn"
+                className="delete-btn text-center"
                 onClick={() => handleDelete(booking?._id)}
               >
-                Delete
+                <i class="fas fa-times"></i>
               </td>
             </tr>
           </tbody>

@@ -5,14 +5,14 @@ const Contact = () => {
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
-    <div className="container  border border mt-3">
-      <h1 className="text-center">Planning a Meeting or Event?</h1>
-      <p>
+    <div id="contact" className="container  border border mt-3">
+      <h1 className="text-center mt-5">Planning a Meeting or Event?</h1>
+      <p className="custom-text">
         If you’re looking for a fun way to bring everyone on your team closer
         together, there is no better group activity than a day at Fantasy
         Kingdom. We offer a variety of turn-key programs that are easy to
@@ -47,11 +47,7 @@ const Contact = () => {
 
               {errors.exampleRequired && <span>This field is required</span>}
 
-              <input
-                type="submit"
-                value="Send"
-                className="btn btn-info w-50 my-3"
-              />
+              <input type="submit" value="Send" className="custom-btn my-3" />
             </form>
           </div>
         </div>

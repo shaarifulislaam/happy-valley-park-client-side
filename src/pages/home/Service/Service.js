@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./service.css";
 
 const Service = ({ service }) => {
   const { _id, name, price, description, img } = service;
@@ -10,17 +11,17 @@ const Service = ({ service }) => {
         <Card className="rounded-4 shadow">
           <Card.Img variant="top" src={img} />
           <Card.Body>
-            <Card.Title>{name}</Card.Title>
+            <Card.Title className="fw-bold service-title">{name}</Card.Title>
             <div className="description">
-              <Card.Text>{description}</Card.Text>
+              <Card.Text className="custom-text">
+                {description.slice(0, 160)}
+              </Card.Text>
             </div>
-            <p>
-              <small>Fee : {price} BDT</small>
-            </p>
+            <p className="service-price">Fee : {price} BDT</p>
           </Card.Body>
           <Card.Footer className="border border-0 bg-white">
             <Link to={`/serviceDetails/${_id}`}>
-              <Button variant="info w-100 ">Book Now</Button>
+              <Button variant="primary  custom-btn ">Book Now</Button>
             </Link>
           </Card.Footer>
         </Card>

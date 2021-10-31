@@ -1,0 +1,16 @@
+.login-container {
+    height: 457px;
+    width: 570px;
+    background-color: #fff;
+    border: 1px solid #ababab;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+    .login-container {
+        height:100%;
+        width: 80%;
+    }
+  }

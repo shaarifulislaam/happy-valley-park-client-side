@@ -18,7 +18,13 @@ const Header = () => {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar
+        fixed="top"
+        collapseOnSelect
+        expand="lg"
+        className="header-bg"
+        variant="light"
+      >
         <Container>
           <Navbar.Brand as={HashLink} to="/home">
             <img
@@ -30,7 +36,7 @@ const Header = () => {
             />
           </Navbar.Brand>
 
-          <Navbar.Toggle />
+          <Navbar.Toggle className="bg-white" />
           <Navbar.Collapse className="justify-content-center align-items-center">
             <Nav.Link as={HashLink} to="/home#home" className="navbar">
               Home
@@ -44,33 +50,38 @@ const Header = () => {
             <Nav.Link as={HashLink} to="/home#attractions" className="navbar">
               Attraction
             </Nav.Link>
-            <Nav.Link as={HashLink} to="/contact" className="navbar">
+            <Nav.Link as={HashLink} to="/home#contact" className="navbar">
               Contact
             </Nav.Link>
 
             {user?.email && (
+              <Nav.Link as={HashLink} to="/addService" className="navbar">
+                Add Service
+              </Nav.Link>
+            )}
+
+            {user?.email && (
               <Dropdown>
                 <Dropdown.Toggle
-                  variant="success"
                   id="dropdown-basic"
-                  className="navbar"
+                  className="navbar custom-btn"
                 >
                   Booking
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to="/addService" className="navbar">
-                    {" "}
-                    Add Service
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/myBooking" className="navbar">
+                  <Dropdown.Item
+                    as={Link}
+                    to="/myBooking"
+                    className="navbar login-text"
+                  >
                     {" "}
                     My Booking
                   </Dropdown.Item>
                   <Dropdown.Item
                     as={Link}
                     to="/manageBooking"
-                    className="navbar"
+                    className="navbar login-text"
                   >
                     {" "}
                     Manage Booking
@@ -80,23 +91,35 @@ const Header = () => {
             )}
 
             {user?.email ? (
-              <Button onClick={logOut} variant="light" className="navbar">
-                LogOut
-              </Button>
+              <Link to="/login" className="text-decoration-none">
+                {" "}
+                <Button
+                  onClick={logOut}
+                  variant="bg-lighter"
+                  className="custom-btn mx-2 navbar login-text2"
+                >
+                  LogOut
+                </Button>
+              </Link>
             ) : (
-              <Nav.Link as={Link} to="/login" className="navbar">
+              <Nav.Link as={Link} to="/login" className="navbar custom-btn">
                 Login
               </Nav.Link>
             )}
 
             <Navbar.Text>
-              <Nav.Link as={Link} to="/login" className="navbar">
+              <Nav.Link
+                as={Link}
+                to="/login"
+                variant="light"
+                className="navbar text-white"
+              >
                 {user?.displayName}
               </Nav.Link>
             </Navbar.Text>
             {user?.email && (
               <Image
-                className=""
+                className="mx-0"
                 style={{ height: "50px", width: "50px" }}
                 src={user?.photoURL}
                 roundedCircle

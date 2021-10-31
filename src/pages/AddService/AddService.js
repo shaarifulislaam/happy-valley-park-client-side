@@ -30,11 +30,9 @@ const AddService = () => {
   };
   return (
     <div>
-      <h1 className="mt-5 text-center text-info">
-        Please Register As a Service
-      </h1>
-      <div className="login-box w-75 m-auto mt-5">
-        <div className=" border border d-flex justify-content-center align-items-center">
+      <div className="login-box w-75 m-auto mt-5 border border">
+        <h1 className="mt-5 text-center ">Add As a Service</h1>
+        <div className="  d-flex justify-content-center align-items-center">
           <div className="login-form mx-auto text-center">
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
@@ -63,7 +61,7 @@ const AddService = () => {
 
               {errors.exampleRequired && <span>This field is required</span>}
 
-              <input type="submit" className="btn btn-info w-50 my-3" />
+              <input type="submit" className="custom-btn my-3" />
             </form>
           </div>
         </div>

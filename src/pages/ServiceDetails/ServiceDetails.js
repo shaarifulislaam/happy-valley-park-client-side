@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
-
 import useAuth from "../../hook/useAuth/useAuth";
-import Home from "../home/home/Home";
 
 const ServiceDetails = () => {
   const { user } = useAuth();
@@ -34,15 +32,14 @@ const ServiceDetails = () => {
         if (result.insertedId) {
           alert("added successfully!!");
           reset();
-          history.push("/home");
+          history.push("/myBooking");
         }
       });
-    // console.log(data);
   };
   return (
-    <div className="row">
+    <div className="row ">
       <div className="col-md-6 col-lg-8 col-sm-12">
-        <div className="row container-fluid">
+        <div className="row container-fluid mt-5">
           <div className="col-md-12 col-lg-6 col-sm-12">
             <img src={service?.img} alt="" />
           </div>
@@ -56,9 +53,9 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      <div className="col-md-6 col-lg-4 col-sm-12 border border">
-        <h1 className="mt-5 text-center text-info">Place Order</h1>
-        <div className="login-box  m-auto mt-5">
+      <div className="col-md-6 col-lg-4 col-sm-12 border border p-1 mt-2 custom-con">
+        <h1 className="mt-3 text-center text-info">Place Order</h1>
+        <div className="login-box  m-auto mt-3">
           <div className=" d-flex justify-content-center align-items-center">
             <div className="login-form mx-auto text-center">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -105,7 +102,7 @@ const ServiceDetails = () => {
                 <input
                   type="submit"
                   value="Place Booking"
-                  className="btn btn-info w-50"
+                  className="custom-btn mb-2"
                 />
               </form>
             </div>

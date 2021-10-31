@@ -19,9 +19,12 @@ const AboutUs = () => {
                 with family <br />
                 and fun.
               </h1>
-              <p className="px-3">
+              <p className="px-3 custom-text">
                 We seek adventure where others only dream. We are bound together
-                by our desire to provide our guests with quality family time.
+                by our desire to provide our guests with quality family
+                time.When the whole family is involved in planning fun
+                activities, you'll have more . bonding into a lifetime of funny,
+                sweet stories and lasting memories.
               </p>
             </div>
           </Col>
