@@ -11,7 +11,7 @@ About the Project:
 
 - User Login system
 - Add service
-- Manage Service (delete ,update)
+- Manage Service (delete ,update system)
 - user Authentication
 - Mongodb use as server
 - Redirect system
