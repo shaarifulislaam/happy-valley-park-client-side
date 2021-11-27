@@ -16,3 +16,13 @@ About the Project:
 - Mongodb use as server
 - Redirect system
 - Logout system
+
+Technology:
+
+- React
+- React-Router
+- Node.js
+- MongoDB
+- Bootstrap
+- Firebase Authentication
+- Heroku.
